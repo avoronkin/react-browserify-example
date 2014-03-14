@@ -15,6 +15,8 @@
             return false;
         },
         render: function() {
+            var time = (new Date()).getTime();
+
             return (
                 React.DOM.form( {className:"commentForm", onSubmit:this.handleSubmit}, 
                 React.DOM.input( {type:"text", placeholder:"Your name", ref:"author"} ),

@@ -25154,9 +25154,11 @@ var converter = new Showdown.converter();
 var Comment = React.createClass({displayName: 'Comment',
     render: function() {
         var rawMarkup = converter.makeHtml(this.props.children.toString());
-
+        var time = (new Date()).getTime();
+        
         return (
             React.DOM.div( {className:"comment"}, 
+            time, " 454545",
             React.DOM.h2( {className:"commentAuthor"}, 
             this.props.author
             ),
@@ -25212,9 +25214,10 @@ module.exports = Comment;
         },
 
         render: function() {
+            var time = (new Date()).getTime();
             return(
                 React.DOM.div( {className:"commentBox"}, 
-                React.DOM.h1(null, "Comments"),
+                React.DOM.h1(null, "Comments ", time),
                 CommentList( {data:this.state.data}),
                 CommentForm( {onCommentSubmit:this.handleCommentSubmit} )
                 )
@@ -25242,6 +25245,8 @@ module.exports = Comment;
             return false;
         },
         render: function() {
+            var time = (new Date()).getTime();
+
             return (
                 React.DOM.form( {className:"commentForm", onSubmit:this.handleSubmit}, 
                 React.DOM.input( {type:"text", placeholder:"Your name", ref:"author"} ),

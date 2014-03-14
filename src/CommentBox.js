@@ -41,9 +41,10 @@
         },
 
         render: function() {
+            var time = (new Date()).getTime();
             return(
                 React.DOM.div( {className:"commentBox"}, 
-                React.DOM.h1(null, "Comments"),
+                React.DOM.h1(null, "Comments ", time),
                 CommentList( {data:this.state.data}),
                 CommentForm( {onCommentSubmit:this.handleCommentSubmit} )
                 )

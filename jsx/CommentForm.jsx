@@ -15,6 +15,8 @@
             return false;
         },
         render: function() {
+            var time = (new Date()).getTime();
+
             return (
                 <form className='commentForm' onSubmit={this.handleSubmit}>
                 <input type='text' placeholder='Your name' ref='author' />
